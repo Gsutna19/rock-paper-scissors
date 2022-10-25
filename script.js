@@ -12,6 +12,7 @@ function restart() {
     document.getElementById("pl-score").innerHTML = 0;
     document.getElementById("comp-score").innerHTML = 0;
 
+    document.getElementById("round-result").innerHTML = " ";
     document.getElementById("game-result").innerHTML = " ";
 
     // playGame();
@@ -23,7 +24,7 @@ function getComputerChoice() {
     // Paper = 1
     // Scissors = 2
     let compChoice = parseInt(((Math.random() * 10) + 1) % 3);
-    console.log(compChoice); 
+    // console.log(compChoice); 
     return compChoice;
 }
 
@@ -100,7 +101,7 @@ function playRound(compChoice, plChoice) {
     // let numPlChoicePaper = parseInt(paper);
     // let numPlChoiceScissor = parseInt(scissors);
     
-    console.log(plChoice)
+    // console.log(plChoice)
     // console.log("Player: " + plScore + " Comp: " + compScore)
 
     if((plChoice == 0 && compChoice == 2) || (plChoice == 1 && compChoice == 0) || (plChoice == 2 && compChoice == 1)) {
@@ -180,13 +181,13 @@ function playGame(button) {
     let gameRound = playRound(compChoice, plChoice);
 
     if (gameRound == "You win!") {
-        console.log("You win!");
+        document.getElementById("round-result").innerHTML = "You win the round";
         // plScore += 1;
     } else if(gameRound == "You lose!") {
-        console.log("You lose!");
+        document.getElementById("round-result").innerHTML = "You lose the round!";
         // compScore += 1;
     } else {
-        console.log("You tied!");
+        document.getElementById("round-result").innerHTML = "You tied this round!";
     }
 
     if (plScore >= 5) {
